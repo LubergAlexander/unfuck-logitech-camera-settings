@@ -16,7 +16,7 @@ void cleanup(int signal)
 }
 
 
-void run_cmd_exec_exit(char *cmd, char *argv[])
+void run_cmd(char *cmd, char *argv[])
 {
 	signal(SIGCHLD, cleanup);
 
@@ -32,28 +32,6 @@ void run_cmd_exec_exit(char *cmd, char *argv[])
 
 		_exit(-2);
 	}
-}
-
-
-void run_cmd(char *cmd, char *argv[])
-{
-	//char *shell[] = {"sh", "-c"};
-
-	//int lenShell = strlen(*shell);
-	//int lenArgv = strlen(*argv);
-
-	//int sizeShell = sizeof(char *) * lenShell;
-	//int sizeArgv = sizeof(char *) * lenArgv;
-
-	//char * *total = malloc(sizeShell + sizeArgv);
-
-	//memcpy(total, shell, sizeShell);
-	//memcpy(&total[lenShell], argv, sizeArgv);
-
-	pid_t pid;
-	int status = posix_spawn(&pid, cmd, NULL, NULL, argv, NULL);
-
-	wait(&status);
 }
 
 
@@ -199,7 +177,7 @@ void RawDeviceAdded(void *refCon, io_iterator_t iterator)
 		kr = (*dev)->USBDeviceClose(dev);
 		kr = (*dev)->Release(dev);
 
-		run_cmd_exec_exit(command_to_run, command_args);
+		run_cmd(command_to_run, command_args);
 	}
 }
 
