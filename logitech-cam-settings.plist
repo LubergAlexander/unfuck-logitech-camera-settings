@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>logitech-cam-settings</string>
+
+        <key>ProgramArguments</key>
+        <array>
+          <string>/Users/aluberg/Code/unfuck-logitech-camera-settings/unfucker</string>
+          <string>"/usr/local/opt/node@6/bin/node /Users/aluberg/Code/unfuck-logitech-camera-settings/main.js"</string>
+        </array>
+
+        <key>KeepAlive</key>
+        <true/>
+
+    </dict>
+</plist>
