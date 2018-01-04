@@ -5,14 +5,28 @@
         <key>Label</key>
         <string>logitech-cam-settings</string>
 
+        <key>WorkingDirectory</key>
+        <string>/Users/aluberg/Code/unfuck-logitech-camera-settings/build/</string>
+
+        <key>EnableGlobbing</key>
+        <true/>
+
         <key>ProgramArguments</key>
         <array>
-          <string>/Users/aluberg/Code/unfuck-logitech-camera-settings/unfucker</string>
-          <string>"/usr/local/opt/node@6/bin/node /Users/aluberg/Code/unfuck-logitech-camera-settings/main.js"</string>
+          <string>./daemon</string>
+          <string>1133</string>
+          <string>2142</string>
+          <string>test.sh</string>
         </array>
 
         <key>KeepAlive</key>
         <true/>
+
+        <key>StandardErrorPath</key>
+        <string>/tmp/logitech-cam-settings.err</string>
+
+        <key>StandardOutPath</key>
+        <string>/tmp/logitech-cam-settings.out</string>
 
     </dict>
 </plist>

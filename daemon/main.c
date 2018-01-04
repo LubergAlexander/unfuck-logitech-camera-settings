@@ -7,11 +7,21 @@
 #include <mach/mach.h>
 #include <signal.h>
 
+pid_t p;
+
+void cleanup(int signal)
+{
+	int status;
+	waitpid(p, &status, 0);
+}
+
+
 void run_cmd_exec_exit(char *cmd, char *argv[])
 {
-	pid_t p = fork();
+	signal(SIGCHLD, cleanup);
 
-	int status;
+	p = fork();
+
 	if (p == 0)
 	{
 		execv(cmd, argv);
@@ -22,8 +32,6 @@ void run_cmd_exec_exit(char *cmd, char *argv[])
 
 		_exit(-2);
 	}
-
-	wait(&status);
 }
 
 
@@ -191,7 +199,7 @@ void RawDeviceAdded(void *refCon, io_iterator_t iterator)
 		kr = (*dev)->USBDeviceClose(dev);
 		kr = (*dev)->Release(dev);
 
-		run_cmd(command_to_run, command_args);
+		run_cmd_exec_exit(command_to_run, command_args);
 	}
 }
 
