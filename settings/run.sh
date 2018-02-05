@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sleep 1;
+sleep 5;
 /Users/aluberg/Code/unfuck-logitech-camera-settings/build/settings &

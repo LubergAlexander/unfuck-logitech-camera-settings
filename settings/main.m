@@ -20,6 +20,7 @@ int main(int argc, const char *argv[])
 		[cameraControl setContrast:0.5];
 		[cameraControl setSaturation:0.5];
 		[cameraControl setWhiteBalance:0.4];
+		[cameraControl setZoom:0.3];
 
 		[cameraControl release];
 	}

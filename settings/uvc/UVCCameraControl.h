@@ -35,6 +35,7 @@ typedef struct {
     uvc_control_info_t absoluteFocus;
     uvc_control_info_t autoFocus;
     uvc_control_info_t focus;
+    uvc_control_info_t zoom;
     uvc_control_info_t brightness;
     uvc_control_info_t contrast;
     uvc_control_info_t gain;
@@ -49,7 +50,7 @@ typedef struct {
 @interface UVCCameraControl : NSObject {
     long dataBuffer;
     IOUSBInterfaceInterface190 **interface;
-    
+
     long interfaceNum;
 }
 
@@ -84,6 +85,9 @@ typedef struct {
 - (BOOL)getAutoFocus;
 - (BOOL)setAbsoluteFocus:(float)value;
 - (float)getAbsoluteFocus;
+
+- (BOOL)setZoom:(float)value;
+- (float)getZoom;
 
 - (BOOL)setAutoWhiteBalance:(BOOL)enabled;
 - (BOOL)getAutoWhiteBalance;
