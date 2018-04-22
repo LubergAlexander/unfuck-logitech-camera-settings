@@ -12,14 +12,11 @@ int main(int argc, const char *argv[])
 		UVCCameraControl *cameraControl = [[UVCCameraControl alloc] initWithVendorID:VID productID:PID interfaceNum:0x00];
 
 		[cameraControl setAutoFocus:NO];
-		[cameraControl setAutoWhiteBalance:NO];
-
 		[cameraControl setAbsoluteFocus:0];
 		[cameraControl setBrightness:0.5];
 		[cameraControl setSharpness:0.5];
 		[cameraControl setContrast:0.5];
 		[cameraControl setSaturation:0.5];
-		[cameraControl setWhiteBalance:0.4];
 		[cameraControl setZoom:0.3];
 
 		[cameraControl release];
